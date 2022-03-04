@@ -1,35 +1,21 @@
-#Anu Sunny
-#21MCA_006
-class Publisher:
-    def __init__(self,name):
-        self.name=name
-    def display(self):
-        print('Name:',self.name)
-
-class Book(Publisher):
-    def __init__(self,title,author):
-
-        self.title=title
-        self.author=author
-
-class Python(Book):
-    def __init__(self,name,title,author,price,noofpage):
-        self.price=price
-        self.noofpage=noofpage
-
-        Publisher.__init__(self, name)
-        Book.__init__(self, title, author)
-
-    def display(self):
-        print("Book Details:")
-        print(' Title:',self.title,'\n Author:',self.author,'\nPrice :',self.price,'\n No Of Pages:',self.noofpage)
-
-print('Enter book name,title,author,price and pages')
-n,t,a,p,np=input(),input(),input(),int(input()),int(input())
-
-p = Python(n,t,a,p,np)
-p.display()
-
-
-
-
+import csv
+csv_columns = ['id','Column1', 'Column2', 'Column3', 'Column4', 'Column5']
+dict_data = {'id':['1', '2', '3'],
+    'Column1':[33, 25, 56],
+    'Column2':[35, 30, 30],
+    'Column3':[21, 40, 55],
+    'Column4':[71, 25, 55],
+    'Column5':[10, 10, 40], }
+csv_file = "temp.csv"
+try:
+   with open(csv_file, 'w') as csvfile:
+       writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
+       writer.writeheader()
+       for data in dict_data:
+           writer.writerow(dict_data)
+except IOError:
+   print("I/O error")
+data = csv.DictReader(open(csv_file))
+print("CSV file as a dictionary:\n")
+for row in data:
+   print(row)

@@ -1,16 +1,10 @@
 #Anu Sunny
 #21MCA_006
+def file_read(fname):
+    with open(fname) as f:
 
-import calc
-
-#print(calc.add(10, 2))
-n1=int(input('Enter first numbers'))
-n2=int(input('Enter first numbers'))
-
-print('addition :',calc.add(n1,n2))
-print('subtraction :',calc.sub(n1,n2))
-print('multiplication :',calc.mul(n1,n2))
-print('division :',calc.div(n1,n2))
+        content_list = f.readlines()
+        print(content_list)
 
 
-
+file_read('D:/anu/pythonproject1/cycle5/test.txt')
