@@ -1,0 +1,5 @@
+clrs=input('Enter the colours in comma seperated form: ')
+list=clrs.split(',')
+len=len(list)
+print('The first colour is',list[0])
+print('The last colour is',list[len-1])
